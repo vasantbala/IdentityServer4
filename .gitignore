@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/IdentityServer4.Learning/.vs/IdentityServer4.Learning/v16
+/IdentityServer4.Learning/IdentityServer/.vs/IdentityServer
+/IdentityServer4.Learning/IdentityServer/bin/Debug/netcoreapp3.1
+/IdentityServer4.Learning/IdentityServer/obj/Debug/netcoreapp3.1
+/IdentityServer4.Learning/IdentityServer/obj
+/IdentityServer4.Learning/IdentityServer/tempkey.rsa
+/IdentityServer4.Learning/MVCClient/bin/Debug/netcoreapp3.1
+/IdentityServer4.Learning/MVCClient/obj
+/IdentityServer4.Learning/ResourceServer/bin/Debug/netcoreapp3.1
+/IdentityServer4.Learning/ResourceServer/obj
+/IdentityServer4.Learning/ResourceServer/ResourceServer.csproj.user
+/IdentityServer4.Learning/IdentityServer/IdentityServer.csproj.user
+/IdentityServer4.Learning/MVCClient/MVCClient.csproj.user
