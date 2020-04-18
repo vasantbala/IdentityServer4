@@ -19,3 +19,5 @@
 /IdentityServer4.Learning/.vs/IdentityServer4.Learning/config/applicationhost.config
 /IdentityServer4.Learning/LegacyResourceServer/obj/Debug
 /IdentityServer4.Learning/packages
+/IdentityServer4.Learning/ConsoleClient/bin/Debug
+/IdentityServer4.Learning/ConsoleClient/obj/Debug

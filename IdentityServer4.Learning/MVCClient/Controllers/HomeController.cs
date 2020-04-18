@@ -33,6 +33,18 @@ namespace MVCClient.Controllers
 			var content = await client.GetStringAsync("http://localhost:6000/api/identity");
 			ViewBag.Json = JArray.Parse(content).ToString();
 
+			try
+			{
+				var clientz = new HttpClient();
+				clientz.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+				var fooContent = await clientz.GetStringAsync("http://localhost:44327/api/foo/get");
+				ViewBag.Foo = fooContent;
+			}
+			catch (Exception ex)
+			{
+				
+			}
+
             return View();
         }
 

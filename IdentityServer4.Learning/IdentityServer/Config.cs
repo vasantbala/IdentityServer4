@@ -14,7 +14,8 @@ namespace IdentityServer
 		{
 			return new List<ApiResource>
 			{
-				new ApiResource("resourceAPI", "API Application")
+				new ApiResource("resourceAPI", "API Application"),
+				new ApiResource("LegacyResourceAPI", "Web API Application")
 			};
 		}
 
@@ -30,7 +31,7 @@ namespace IdentityServer
 
 					AllowedGrantTypes = GrantTypes.ClientCredentials,
 					// scopes that client has access to
-					AllowedScopes = { "resourceAPI" }
+					AllowedScopes = { "resourceAPI", "LegacyResourceAPI" }
 				},
 				new Client
 				{
@@ -45,7 +46,8 @@ namespace IdentityServer
 					AllowedScopes = {
 										IdentityServerConstants.StandardScopes.OpenId,
 										IdentityServerConstants.StandardScopes.Profile,
-										"resourceAPI"
+										"resourceAPI",
+										"LegacyResourceAPI"
 									},
 					AllowOfflineAccess = true //enables refresh tokens support
 				}
