@@ -15,3 +15,7 @@
 /IdentityServer4.Learning/ResourceServer/ResourceServer.csproj.user
 /IdentityServer4.Learning/IdentityServer/IdentityServer.csproj.user
 /IdentityServer4.Learning/MVCClient/MVCClient.csproj.user
+/IdentityServer4.Learning/LegacyResourceServer/bin
+/IdentityServer4.Learning/.vs/IdentityServer4.Learning/config/applicationhost.config
+/IdentityServer4.Learning/LegacyResourceServer/obj/Debug
+/IdentityServer4.Learning/packages
