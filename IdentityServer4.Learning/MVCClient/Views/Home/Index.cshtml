@@ -3,6 +3,7 @@
 }
 @using  Microsoft.AspNetCore.Authentication
 
+<h2>Value from Authentication</h2>
 <h2>Claims</h2>
 
 <d1>
@@ -22,5 +23,10 @@
         <dt>@prop.Value</dt>
     }
 </d1>
+
+<hr/>
+
+<h2>Value from Resource Server</h2>
+<pre>@ViewBag.Json</pre>
 
 @Html.ActionLink("Logout", "Logout", "Home")

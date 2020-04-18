@@ -30,13 +30,15 @@ namespace IdentityServer
 
 					AllowedGrantTypes = GrantTypes.ClientCredentials,
 					// scopes that client has access to
-					AllowedScopes = { "api1" }
+					AllowedScopes = { "resourceAPI" }
 				},
 				new Client
 				{
 					ClientId = "mvc",
 					ClientName = "MVC Client",
 					AllowedGrantTypes = GrantTypes.Code,
+					RequireConsent = false,
+					RequirePkce = true,
 					ClientSecrets = { new Secret("secret".Sha256()) },
 					RedirectUris = { "http://localhost:7000/signin-oidc" },
 					PostLogoutRedirectUris = { "http://localhost:7000/signout-callback-oidc" },
@@ -44,7 +46,8 @@ namespace IdentityServer
 										IdentityServerConstants.StandardScopes.OpenId,
 										IdentityServerConstants.StandardScopes.Profile,
 										"resourceAPI"
-									}
+									},
+					AllowOfflineAccess = true //enables refresh tokens support
 				}
 
 

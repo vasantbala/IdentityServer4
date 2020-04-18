@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCClient.Models;
+using Microsoft.AspNetCore.Authentication;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 namespace MVCClient.Controllers
 {
@@ -18,8 +22,17 @@ namespace MVCClient.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+			var accessToken = await HttpContext.GetTokenAsync("access_token");
+			var refreshToken = await HttpContext.GetTokenAsync("refresh_token");
+
+			var client = new HttpClient();
+			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+			var content = await client.GetStringAsync("http://localhost:6000/api/identity");
+			ViewBag.Json = JArray.Parse(content).ToString();
+
             return View();
         }
 

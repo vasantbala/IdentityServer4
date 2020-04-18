@@ -43,6 +43,9 @@ namespace MVCClient
 				options.ResponseType = "code";
 
 				options.SaveTokens = true;
+
+				options.Scope.Add("resourceAPI");
+				options.Scope.Add("offline_access");
 			});
 
 		}
