@@ -23,7 +23,14 @@ namespace IdentityServer
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
 
-			var builder = services.AddIdentityServer()
+			var builder = services.AddIdentityServer(
+				option => 
+				{
+					//This is required to use it on .netframework
+					//https://stackoverflow.com/questions/49041098/web-api-net-framework-4-6-1-and-identityserver4
+					option.AccessTokenJwtType = ""; 
+					option.EmitLegacyResourceAudienceClaim = true; }
+				)
 				.AddDeveloperSigningCredential()
 				.AddInMemoryIdentityResources(Config.GetIdentityResources())
 				.AddInMemoryApiResources(Config.GetApiResources())

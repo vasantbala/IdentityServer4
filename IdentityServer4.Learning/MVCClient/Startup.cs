@@ -45,6 +45,7 @@ namespace MVCClient
 				options.SaveTokens = true;
 
 				options.Scope.Add("resourceAPI");
+				options.Scope.Add("LegacyResourceAPI");
 				options.Scope.Add("offline_access");
 			});
 

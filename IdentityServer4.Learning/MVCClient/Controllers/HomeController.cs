@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace MVCClient.Controllers
 {
@@ -27,23 +28,24 @@ namespace MVCClient.Controllers
 			var accessToken = await HttpContext.GetTokenAsync("access_token");
 			var refreshToken = await HttpContext.GetTokenAsync("refresh_token");
 
-			var client = new HttpClient();
-			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-			var content = await client.GetStringAsync("http://localhost:6000/api/identity");
-			ViewBag.Json = JArray.Parse(content).ToString();
-
-			try
+			using (var client = new HttpClient())
 			{
-				var clientz = new HttpClient();
+				client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+				var content = await client.GetStringAsync("http://localhost:6000/api/identity");
+				ViewBag.Json = JArray.Parse(content).ToString();
+			}
+
+			using (var clientz = new HttpClient())
+			{
 				clientz.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-				var fooContent = await clientz.GetStringAsync("http://localhost:44327/api/foo/get");
+				var fooContent = await clientz.GetStringAsync("https://localhost:44327/api/foo/get");
 				ViewBag.Foo = fooContent;
+
+				var barContent = await clientz.GetStringAsync("https://localhost:44327/api/bar/get");
+				ViewBag.Bar = barContent;
 			}
-			catch (Exception ex)
-			{
 				
-			}
 
             return View();
         }
