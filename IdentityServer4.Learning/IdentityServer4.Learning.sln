@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyResourceServer", "Leg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{08EA8B85-B02F-462C-9CC0-13E7FF497754}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyResourceServerMB", "LegacyResourceServerMB\LegacyResourceServerMB.csproj", "{8D6860BF-F381-449E-93EC-98FF448526F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{08EA8B85-B02F-462C-9CC0-13E7FF497754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08EA8B85-B02F-462C-9CC0-13E7FF497754}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08EA8B85-B02F-462C-9CC0-13E7FF497754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6860BF-F381-449E-93EC-98FF448526F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6860BF-F381-449E-93EC-98FF448526F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6860BF-F381-449E-93EC-98FF448526F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6860BF-F381-449E-93EC-98FF448526F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -45,6 +45,26 @@ namespace MVCClient.Controllers
 				var barContent = await clientz.GetStringAsync("https://localhost:44327/api/bar/get");
 				ViewBag.Bar = barContent;
 			}
+
+			using (var client = new HttpClient())
+			{
+				string oauthTokenUrl = "https://localhost:44328/token";
+				var cred = new List<KeyValuePair<string, string>>();
+				cred.Add(new KeyValuePair<string, string>("grant_type", "password"));
+				cred.Add(new KeyValuePair<string, string>("username", "Administrator"));
+				cred.Add(new KeyValuePair<string, string>("password", "SuperPassword"));
+
+				var req = new HttpRequestMessage(HttpMethod.Post, oauthTokenUrl) { Content = new FormUrlEncodedContent(cred) };
+				var oauthTokenResult = await client.SendAsync(req);
+				if (oauthTokenResult.IsSuccessStatusCode)
+				{
+					string oauthContent = await oauthTokenResult.Content.ReadAsStringAsync();
+					string oauthAccessToken = (string)JObject.Parse(oauthContent).SelectToken("access_token");
+					client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", oauthAccessToken);
+					var fooContent = await client.GetStringAsync("https://localhost:44328/api/foo");
+					ViewBag.OAuthFoo = fooContent;
+				}
+			}
 				
 
             return View();
