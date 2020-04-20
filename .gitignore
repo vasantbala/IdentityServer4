@@ -22,3 +22,5 @@
 /IdentityServer4.Learning/ConsoleClient/bin/Debug
 /IdentityServer4.Learning/ConsoleClient/obj/Debug
 /IdentityServer4.Learning/.vs/IdentityServer4.Learning/DesignTimeBuild/.dtbcache
+/IdentityServer4.Learning/LegacyResourceServerMB/bin
+/IdentityServer4.Learning/LegacyResourceServerMB/obj/Debug
